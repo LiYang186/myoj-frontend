@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <BasicLayout />
+    <template v-if="router.path.startsWith('/user')">
+      <router-view />
+    </template>
+
+    <template v-else>
+      <BasicLayout />
+    </template>
   </div>
 </template>
 
@@ -10,10 +16,10 @@
 </style>
 <script setup lang="ts">
 import BasicLayout from "@/layouts/BasicLayout.vue";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 import { onMounted } from "vue";
 
+const router = useRoute();
 /**
  * 全局初始化函数，写入单词调用的代码
  */
@@ -23,18 +29,5 @@ const doInit = () => {
 
 onMounted(() => {
   //
-});
-
-const router = useRouter();
-const store = useStore();
-
-router.beforeEach((to, from, next) => {
-  if (to.meta?.access === "canAdmin") {
-    if (store.state.user.loginUser?.role !== "admin") {
-      next("/noAuth");
-      return;
-    }
-  }
-  next();
 });
 </script>

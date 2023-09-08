@@ -40,8 +40,8 @@ const store = useStore();
 
 // setTimeout(() => {
 //   store.dispatch("user/getLoginUser", {
-//     userName: "YL管理员",
-//     userRole: AccessEnum.ADMIN,
+//     userName: "admin",
+//     userRole: AccessEnum.USER,
 //   });
 // }, 3000);
 
