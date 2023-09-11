@@ -7,6 +7,7 @@ import { OpenAPI } from '../core/OpenAPI';
 import { request as __request } from '../core/request';
 
 export class WxMpControllerService {
+
     /**
      * check
      * @param echostr echostr

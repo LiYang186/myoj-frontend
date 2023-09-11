@@ -30,7 +30,8 @@
 }
 
 #userLayout .content {
-  background: linear-gradient(to right, #bbb, #fff);
+  background: url("https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png")
+    0% 0% / 100% 100%;
   margin-bottom: 16px;
   padding: 20px;
 }
