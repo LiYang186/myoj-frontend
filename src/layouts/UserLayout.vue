@@ -4,13 +4,22 @@
       <a-layout-header class="header">
         <a-space>
           <img src="../assets/oj-logo.jpg" class="logo" />
-          <div>MY OJ</div>
+          <div style="margin-left: 15px; font-size: 25px; font-weight: bold">
+            Y OJ 在线判题系统
+          </div>
         </a-space>
       </a-layout-header>
       <a-layout-content class="content">
         <router-view />
       </a-layout-content>
-      <a-layout-footer class="footer"> Footer</a-layout-footer>
+      <a-layout-footer class="footer"
+        ><a href="https://gitee.com/LiYang186" target="_blank">
+          Cat OJ By LiYang186</a
+        >
+        <!--        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">-->
+        <!--          桂ICP备2023002099号-->
+        <!--        </a>-->
+      </a-layout-footer>
     </a-layout>
   </div>
 </template>
@@ -18,11 +27,13 @@
 <style scoped>
 #userLayout {
   text-align: center;
+  background: url("https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png")
+    0% 0% /100% 100%;
 }
 
 #userLayout .logo {
-  height: 64px;
   width: 64px;
+  height: 64px;
 }
 
 #userLayout .header {
@@ -30,8 +41,6 @@
 }
 
 #userLayout .content {
-  background: url("https://gw.alipayobjects.com/zos/rmsportal/FfdJeJRQWjEeGTpqgBKj.png")
-    0% 0% / 100% 100%;
   margin-bottom: 16px;
   padding: 20px;
 }
@@ -45,5 +54,4 @@
   text-align: center;
 }
 </style>
-
-<script setup lang="ts"></script>
+<script></script>

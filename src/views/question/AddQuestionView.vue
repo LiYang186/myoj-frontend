@@ -223,7 +223,7 @@ const loadData = async () => {
   if (!id) {
     return;
   }
-  const res = await QuestionControllerService.getQuestionVoByIdUsingGet(
+  const res = await QuestionControllerService.getQuestionByIdUsingGet(
     id as any
   );
   if (res.code === 0) {
@@ -268,7 +268,6 @@ onMounted(() => {
  * 提交
  */
 const doSubmit = async () => {
-  console.log(form.value);
   // 区分更新还是创建
   if (updatePage) {
     const res = await QuestionControllerService.updateQuestionUsingPost(

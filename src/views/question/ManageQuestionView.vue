@@ -9,7 +9,7 @@
         <a-input v-model="searchParams.title" placeholder="请输入搜索题目" />
       </a-form-item>
       <a-form-item field="title" label="用户：" tooltip="请输入用户的id">
-        <a-input v-model="searchParams.userId" placeholder="请输入搜索用户" />
+        <a-input v-model="searchParams.userId" placeholder="请输入用户id" />
       </a-form-item>
       <a-form-item field="title" label="题目内容" tooltip="请输入题目内容">
         <a-input v-model="searchParams.content" placeholder="请输入题目内容" />
@@ -54,7 +54,7 @@
           </a-tag>
         </a-space>
       </template>
-      q
+
       <template #judgeConfig="{ record }">
         <a-space wrap>
           <a-tag
@@ -74,6 +74,7 @@
           </a-tag>
         </a-space>
       </template>
+
       <template #optional="{ record }">
         <a-space>
           <a-button shape="round" type="outline" @click="doUpdate(record)"
@@ -120,8 +121,6 @@ const searchParams = ref({
   current: 1,
   content: "",
 });
-// 创建一个数组来存储获取到的用户信息
-// const userInfos = [];
 
 const loadData = async () => {
   const res = await QuestionControllerService.listQuestionByPageUsingPost({
