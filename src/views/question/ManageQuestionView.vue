@@ -40,6 +40,7 @@
         total,
         showJumper: true,
         showPageSize: true,
+        pageSizeOptions: [5, 10, 15, 20],
       }"
       @page-change="onPageChange"
       @pageSizeChange="onPageSizeChange"
@@ -49,7 +50,7 @@
           <a-tag
             v-for="(tag, index) of JSON.parse(record.tags)"
             :key="index"
-            color="cyan"
+            color="green"
             >{{ tag }}
           </a-tag>
         </a-space>
@@ -137,7 +138,7 @@ const loadData = async () => {
 };
 
 /**
- * 监听 searchParams 变量，改变时触发页面的重新加载
+ * 监听函数中的变量，改变时触发页面的重新加载
  */
 watchEffect(() => {
   loadData();
@@ -245,7 +246,7 @@ const doDelete = async (question: Question) => {
   });
   if (res.code === 0) {
     message.success("删除成功");
-    loadData();
+    await loadData();
   } else {
     message.error("删除失败");
   }

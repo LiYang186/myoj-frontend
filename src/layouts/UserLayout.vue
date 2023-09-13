@@ -16,9 +16,6 @@
         ><a href="https://gitee.com/LiYang186" target="_blank">
           Cat OJ By LiYang186</a
         >
-        <!--        <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">-->
-        <!--          桂ICP备2023002099号-->
-        <!--        </a>-->
       </a-layout-footer>
     </a-layout>
   </div>

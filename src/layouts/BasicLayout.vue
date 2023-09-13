@@ -7,7 +7,11 @@
       <a-layout-content class="content">
         <router-view />
       </a-layout-content>
-      <a-layout-footer class="footer"> Footer</a-layout-footer>
+      <a-layout-footer class="footer"
+        ><a href="https://gitee.com/LiYang186" target="_blank">
+          Cat OJ By LiYang186</a
+        >
+      </a-layout-footer>
     </a-layout>
   </div>
 </template>
@@ -27,7 +31,6 @@
 }
 
 #basicLayout .footer {
-  background: #efefef;
   padding: 16px;
   position: sticky;
   bottom: 0;
