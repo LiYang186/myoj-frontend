@@ -32,7 +32,7 @@
         total,
         showJumper: true,
         showPageSize: true,
-        pageSizeOptions: [5, 10, 15, 20],
+        pageSizeOptions: [5, 15, 30, 50],
       }"
       @page-change="onPageChange"
       @pageSizeChange="onPageSizeChange"

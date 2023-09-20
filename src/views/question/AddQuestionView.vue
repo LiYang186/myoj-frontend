@@ -121,7 +121,7 @@
         tooltip="建议填写测试用例配置"
       >
         <a-form-item
-          v-for="(judgeCaseItem, index) of form.judgeCase"
+          v-for="(judgeCase, index) of form.judgeCase"
           :key="index"
           no-style
         >
@@ -137,6 +137,7 @@
                 placeholder="请输入测试输入用例"
               />
             </a-form-item>
+
             <a-form-item
               :field="`form.judgeCase[${index}].output`"
               :label="`第${index + 1}个输出用例:`"

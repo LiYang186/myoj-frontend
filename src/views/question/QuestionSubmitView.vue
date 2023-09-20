@@ -26,7 +26,7 @@
           type="primary"
           shape="round"
           status="success"
-          @click="loadData"
+          @click="loadNewData"
           >刷新
         </a-button>
       </a-form-item>
@@ -45,6 +45,7 @@
         total,
         showJumper: true,
         showPageSize: true,
+        pageSizeOptions: [5, 15, 30, 50],
       }"
       @page-change="onPageChange"
       @pageSizeChange="onPageSizeChange"
@@ -58,15 +59,12 @@
             :color="colors[index.length % colors.length]"
           >
             {{
-              `${
-                index === "message"
-                  ? "结果"
-                  : index === "time"
-                  ? "耗时"
-                  : "消耗内存"
-              }`
-            }}
-            {{ "：" + info }}
+              index === "message"
+                ? "结果"
+                : index === "time"
+                ? "耗时"
+                : "消耗内存"
+            }}: {{ info }}
           </a-tag>
         </a-space>
       </template>
@@ -85,7 +83,7 @@
         <!--        判题状态（0 - 待判题、1 - 判题中、2 - 成功、3 - 失败）-->
         <a-tag v-if="record.status === 0" color="cyan">待判题</a-tag>
         <a-tag v-if="record.status === 1" color="green">判题中</a-tag>
-        <a-tag v-if="record.status === 2" color="blue">成功</a-tag>
+        <a-tag v-if="record.status === 2" color="blue">结束</a-tag>
         <a-tag v-if="record.status === 3" color="red">失败</a-tag>
       </template>
     </a-table>
@@ -95,7 +93,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watchEffect } from "vue";
 import {
-  QuestionSubmitControllerService,
+  QuestionControllerService,
   QuestionSubmitQueryRequest,
 } from "../../../generated";
 import message from "@arco-design/web-vue/es/message";
@@ -116,18 +114,24 @@ const searchParams = ref<QuestionSubmitQueryRequest>({
 const colors = ["orange", "green", "blue", "red"];
 
 const loadData = async () => {
-  const res =
-    await QuestionSubmitControllerService.listQuestionSubmitByPageUsingPost({
+  const res = await QuestionControllerService.listQuestionSubmitByPageUsingPost(
+    {
       ...searchParams.value,
       sortField: "createTime",
-      sortOrder: "descend",
-    });
+      sortOrder: "descend", //根据时间降序排序
+    }
+  );
   if (res.code === 0) {
     dataList.value = res.data.records;
     total.value = res.data.total;
   } else {
     message.error("加载失败，" + res.message);
   }
+};
+
+const loadNewData = async () => {
+  loadData();
+  message.success("刷新成功");
 };
 
 /**
