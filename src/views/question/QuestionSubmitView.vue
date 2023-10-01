@@ -175,8 +175,8 @@ const columns = [
   },
   {
     title: "提交者",
-    slotName: "userId",
-    dataIndex: "center",
+    dataIndex: "userId",
+    align: "center",
   },
   {
     title: "判题信息",

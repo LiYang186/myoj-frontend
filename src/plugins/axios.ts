@@ -17,12 +17,10 @@ axios.defaults.withCredentials = true;
 // 携带token方式登录
 axios.interceptors.request.use(
   (config) => {
-    console.log("请求拦截器生效");
     // 假设token存在localStorage中
     const token = localStorage.getItem("token");
     console.log("token:", token);
     if (token) {
-      console.log("有token");
       config.headers.Authorization = token;
     }
     return config;
@@ -35,7 +33,6 @@ axios.interceptors.request.use(
 // Add a response interceptor
 axios.interceptors.response.use(
   function (response) {
-    console.log("响应", response);
     // Any status code that lie within the range of 2xx cause this function to trigger
     // Do something with response data
     return response;

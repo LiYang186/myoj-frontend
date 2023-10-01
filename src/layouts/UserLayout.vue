@@ -3,7 +3,7 @@
     <a-layout style="min-height: 100vh">
       <a-layout-header class="header">
         <a-space>
-          <img src="../assets/oj-logo.jpg" class="logo" />
+          <img src="../assets/1593c04cd5c09df9.webp" class="logo" />
           <div style="margin-left: 15px; font-size: 25px; font-weight: bold">
             Y OJ 在线判题系统
           </div>
@@ -14,7 +14,7 @@
       </a-layout-content>
       <a-layout-footer class="footer"
         ><a href="https://gitee.com/LiYang186" target="_blank">
-          Cat OJ By LiYang186</a
+          Y OJ By LiYang186</a
         >
       </a-layout-footer>
     </a-layout>

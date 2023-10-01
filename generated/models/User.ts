@@ -5,7 +5,7 @@
 
 export type User = {
     createTime?: string;
-    id?: number;
+    id?: bigint;
     isDelete?: number;
     mpOpenId?: string;
     unionId?: string;
@@ -17,3 +17,5 @@ export type User = {
     userProfile?: string;
     userRole?: string;
 };
+
+

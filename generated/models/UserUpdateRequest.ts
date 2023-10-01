@@ -4,7 +4,7 @@
 /* eslint-disable */
 
 export type UserUpdateRequest = {
-    id?: number;
+    id?: bigint;
     userAvatar?: string;
     userName?: string;
     userProfile?: string;

@@ -13,8 +13,8 @@
             disabled
           >
             <div class="title-bar">
-              <img class="logo" src="../assets/oj-logo.jpg" />
-              <div class="title">OJ</div>
+              <img class="logo" src="../assets/1593c04cd5c09df9.webp" />
+              <div class="title">Y OJ</div>
             </div>
           </a-menu-item>
           <a-menu-item v-for="item in visibleRoutes" :key="item.path">
@@ -174,6 +174,7 @@ const toUserInfoPage = (question: Question) => {
 
 .logo {
   height: 48px;
+  opacity: 0.9;
 }
 
 .title {
