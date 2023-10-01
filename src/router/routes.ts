@@ -11,6 +11,7 @@ import ManageQuestionView from "@/views/question/ManageQuestionView.vue";
 import QuestionView from "@/views/question/QuestionView.vue";
 import ViewQuestionView from "@/views/question/ViewQuestionView.vue";
 import QuestionSubmitView from "@/views/question/QuestionSubmitView.vue";
+import UserInfoView from "@/views/user/UserInfoView.vue";
 
 export const routes: Array<RouteRecordRaw> = [
   {
@@ -31,12 +32,17 @@ export const routes: Array<RouteRecordRaw> = [
         name: "用户注册",
         component: UserRegisterView,
       },
+      {
+        path: "/user/info/:id",
+        name: "用户个人",
+        component: UserInfoView,
+      },
     ],
   },
 
   {
     path: "/",
-    name: "主页",
+    name: "题目列表",
     component: QuestionView,
   },
   {
@@ -44,12 +50,12 @@ export const routes: Array<RouteRecordRaw> = [
     name: "创建题目",
     component: AddQuestionView,
     meta: {
-      access: accessEnum.USER,
+      access: accessEnum.ADMIN,
     },
   },
   {
     path: "/question/submit",
-    name: "题目提交",
+    name: "题目提交记录",
     component: QuestionSubmitView,
   },
 

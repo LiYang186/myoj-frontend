@@ -6,5 +6,12 @@ import router from "./router";
 import store from "./store";
 import "@/access";
 import "bytemd/dist/index.css";
+import "@/plugins/axios";
+import ArcoVueIcon from "@arco-design/web-vue/es/icon";
 
-createApp(App).use(store).use(router).use(ArcoVue).mount("#app");
+createApp(App)
+  .use(store)
+  .use(router)
+  .use(ArcoVue)
+  .use(ArcoVueIcon)
+  .mount("#app");

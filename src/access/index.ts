@@ -30,5 +30,6 @@ router.beforeEach(async (to, from, next) => {
       return;
     }
   }
+  //所访问的页面不需要登录直接跳转
   next();
 });

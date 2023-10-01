@@ -86,14 +86,15 @@ const handleSubmit = async () => {
   const res = await UserControllerService.userLoginUsingPost(form);
   // 登录成功，跳转到主页
   if (res.code === 0) {
-    await store.dispatch("user/getLoginUser");
     // 将token保存在localStorage中
-    // localStorage.setItem("token", res.data.token);
+    localStorage.setItem("token", res.data.token);
     await router.push({
       path: "/",
       replace: true,
     });
     message.success("登录成功！");
+    // 在跳转到主页后重新获取用户信息
+    await store.dispatch("user/getLoginUser");
   } else {
     message.error("登陆失败，" + res.message);
   }

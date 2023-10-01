@@ -296,6 +296,10 @@ const doSubmit = async () => {
       form.value.judgeCase = [];
       form.value.content = "";
       form.value.title = "";
+      await router.push({
+        path: "/",
+        replace: true,
+      });
     } else {
       message.error("创建失败，" + res.message);
     }

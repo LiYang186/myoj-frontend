@@ -9,7 +9,7 @@
       </a-layout-content>
       <a-layout-footer class="footer"
         ><a href="https://gitee.com/LiYang186" target="_blank">
-          Cat OJ By LiYang186</a
+          Y OJ By LiYang186</a
         >
       </a-layout-footer>
     </a-layout>

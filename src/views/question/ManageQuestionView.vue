@@ -109,6 +109,7 @@ import { Question, QuestionControllerService } from "../../../generated";
 import message from "@arco-design/web-vue/es/message";
 
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 
 const tableRef = ref();
 
@@ -254,6 +255,7 @@ const doDelete = async (question: Question) => {
 
 const router = useRouter();
 
+const store = useStore();
 /**
  * 修改 / 更新操作
  * @param question

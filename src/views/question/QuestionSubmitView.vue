@@ -26,7 +26,7 @@
           type="primary"
           shape="round"
           status="success"
-          @click="loadNewData"
+          @click="loadData"
           >刷新
         </a-button>
       </a-form-item>
@@ -68,9 +68,11 @@
           </a-tag>
         </a-space>
       </template>
+
       <template #createTime="{ record }">
         {{ moment(record.createTime).format("YYYY-MM-DD HH:mm:ss") }}
       </template>
+
       <template #questionId="{ record }">
         <a-link
           status="success"
@@ -79,6 +81,22 @@
           >{{ record.questionId }}
         </a-link>
       </template>
+
+      <!--      <template #code="{ record }">-->
+      <!--        <a-button @click="handleClick">查看代码</a-button>-->
+      <!--        <a-modal-->
+      <!--          v-model:visible="visible"-->
+      <!--          @cancel="handleCancel"-->
+      <!--          unmountOnClose-->
+      <!--        >-->
+      <!--          <template #title>代码细节</template>-->
+      <!--          <div>-->
+      <!--            {{ record.code }}-->
+      <!--          </div>-->
+      <!--        </a-modal>-->
+      <!--      </template>-->
+
+      <!--自定义插槽-->
       <template #status="{ record }">
         <!--        判题状态（0 - 待判题、1 - 判题中、2 - 成功、3 - 失败）-->
         <a-tag v-if="record.status === 0" color="cyan">待判题</a-tag>
@@ -93,6 +111,7 @@
 <script setup lang="ts">
 import { onMounted, ref, watchEffect } from "vue";
 import {
+  Question,
   QuestionControllerService,
   QuestionSubmitQueryRequest,
 } from "../../../generated";
@@ -129,11 +148,6 @@ const loadData = async () => {
   }
 };
 
-const loadNewData = async () => {
-  loadData();
-  message.success("刷新成功");
-};
-
 /**
  * 监听 searchParams 变量，改变时触发页面的重新加载
  */
@@ -161,8 +175,8 @@ const columns = [
   },
   {
     title: "提交者",
-    dataIndex: "userId",
-    align: "center",
+    slotName: "userId",
+    dataIndex: "center",
   },
   {
     title: "判题信息",
@@ -195,6 +209,12 @@ const onPageChange = (page: number) => {
     current: page,
   };
 };
+
+const visible = ref(false);
+/**
+ * 关闭对话框
+ */
+
 /**
  * 分页大小
  * @param size
@@ -204,6 +224,12 @@ const onPageSizeChange = (size: number) => {
     ...searchParams.value,
     pageSize: size,
   };
+};
+
+const toUserInfoPage = (question: Question) => {
+  router.push({
+    path: `/user/info/${question.id}`,
+  });
 };
 const router = useRouter();
 

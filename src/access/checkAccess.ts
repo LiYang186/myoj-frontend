@@ -23,7 +23,7 @@ const checkAccess = (loginUser: any, needAccess = ACCESS_ENUM.NOT_LOGIN) => {
 
   //如果需要管理员才能访问
   if (needAccess === ACCESS_ENUM.ADMIN) {
-    //用户不登录，无权限
+    //用户不是管理员，无权限
     if (loginUserAccess !== ACCESS_ENUM.ADMIN) {
       return false;
     }

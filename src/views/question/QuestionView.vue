@@ -53,8 +53,8 @@
         {{
           `${
             record.submitNum > 0
-              ? (record.acceptedNum / record.submitNum) * 100
-              : "0"
+              ? ((record.acceptedNum / record.submitNum) * 100).toFixed(2)
+              : "0.00"
           } % (${record.acceptedNum}/${record.submitNum})`
         }}
       </template>
