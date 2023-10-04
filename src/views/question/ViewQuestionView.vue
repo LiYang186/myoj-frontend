@@ -83,6 +83,7 @@ import message from "@arco-design/web-vue/es/message";
 import CodeEditor from "@/components/CodeEditor.vue";
 import MdViewer from "@/components/MdViewer.vue";
 import { languages } from "monaco-editor";
+import { useRouter } from "vue-router";
 
 interface Props {
   id: string;
@@ -126,6 +127,7 @@ const form = ref<QuestionSubmitAddRequest>({
   code: codeDefaultValue as unknown as string,
 });
 
+const router = useRouter();
 /**
  * 提交代码
  */
@@ -142,6 +144,10 @@ const doSubmit = async () => {
   } else {
     message.error("提交失败," + res.message);
   }
+  await router.push({
+    path: "/",
+    replace: true,
+  });
 };
 
 /**
